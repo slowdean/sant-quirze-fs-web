@@ -43,4 +43,31 @@ if (form) {
   });
 }
 
+// Cargar galería desde Instagram API
+async function loadInstagram() {
+  const gallery = document.querySelector('#galeria .gallery');
+  if (!gallery) return;
+  try {
+    const res = await fetch('/api/instagram?limit=9');
+    const data = await res.json();
+    if (!data.ok || !Array.isArray(data.items) || data.items.length === 0) return;
+    gallery.innerHTML = '';
+    for (const item of data.items) {
+      const a = document.createElement('a');
+      a.href = item.permalink;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      const img = document.createElement('img');
+      img.src = item.mediaUrl;
+      img.alt = item.caption || 'Instagram Sant Quirze FS';
+      a.appendChild(img);
+      gallery.appendChild(a);
+    }
+  } catch (e) {
+    // Silenciar fallo: se mantiene la galería estática si la hay
+  }
+}
+
+loadInstagram();
+
 
