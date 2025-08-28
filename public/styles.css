@@ -60,6 +60,7 @@ input, select, textarea { width: 100%; padding: 10px; border: 1px solid var(--gr
 
 .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .gallery img { width: 100%; border-radius: 12px; height: 160px; object-fit: cover; }
+.gallery-cta { margin-top: 12px; }
 
 .site-footer { border-top: 1px solid var(--gray-300); background: #fafafa; padding: 16px 0; color: var(--gray-600); }
 
