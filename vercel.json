@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/inscripcion.js", "use": "@vercel/node" },
+    { "src": "public/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/api/inscripcion", "dest": "api/inscripcion.js" },
+    { "src": "/(.*)", "dest": "/public/index.html" }
+  ]
+}
+
